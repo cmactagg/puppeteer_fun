@@ -1,18 +1,24 @@
 const puppeteer = require('puppeteer');
 
+var myArgs = process.argv.slice(2);
+
+
 (async () => {
 
-    // let username = "someemail@gmail.com";
-    // let password = "somepass";
+
 
     let loginUsingGoogle = true;
-    let username = "";
-    let password = "";
-    let googleUsername = "";
-    let googlePassword = "";
-    let plateNumber = "";
+    let username = myArgs[0];
+    let password = myArgs[1];
+    let googleUsername = myArgs[0];
+    let googlePassword = myArgs[1];
+    let plateNumber = myArgs[2];
 
-    const browser = await puppeteer.launch({ headless: false, sloMo: 250 });
+    console.log(googleUsername);
+    console.log(googlePassword);
+    console.log(plateNumber);
+    
+    const browser = await puppeteer.launch({ headless: false, sloMo: 500 });
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 800 });
     await page.goto('https://cpa.permit.calgaryparking.com/login');
@@ -60,4 +66,5 @@ const puppeteer = require('puppeteer');
     await page.click('#start');
 
     //await browser.close();
+    
 })();

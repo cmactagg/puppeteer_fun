@@ -1,5 +1,9 @@
 const puppeteer = require('puppeteer');
 
+var myArgs = process.argv.slice(2);
+
+console.log(myArgs[0], "fdsafsadf", myArgs[1]);
+
 (async () => {
   const browser = await puppeteer.launch({headless: false});
   const page = await browser.newPage();
